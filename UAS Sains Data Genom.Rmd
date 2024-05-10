@@ -1,0 +1,1127 @@
+---
+title: ''
+output:
+  pdf_document:
+    number_sections: FALSE
+    df_print: kable
+    fig_caption: yes
+    toc: FALSE
+geometry: left = 2cm, right = 2cm, top = 2cm, bottom = 2cm
+fontsize: 11pt
+header-includes:
+  - \usepackage{float}
+  - \usepackage{sectsty}
+  - \usepackage{paralist}
+  - \usepackage{setspace}
+  - \usepackage{fancyhdr}
+  - \usepackage{lastpage}
+  - \usepackage{dcolumn}
+  - \usepackage{multicol}
+  - \usepackage{caption}
+  - \captionsetup[table]{name = Tabel}
+  - \captionsetup[figure]{name = Gambar}
+  - \usepackage[titles]{tocloft}
+  - \usepackage{hanging}
+  - \usepackage{hyperref}
+  - \usepackage{booktabs}
+urlcolor: blue
+linkcolor: black
+indent: true
+editor_options:
+  chunk_ouput_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, massage = FALSE, comment = NA)
+knitr::opts_chunk$set(out.width = "50%", out.height = "50%", fig.align = "center")
+knitr::opts_chunk$set(fig.pos = "H")
+```
+
+\allsectionsfont{\centering}
+\subsectionfont{\raggedright}
+\subsubsectionfont{\raggedright}
+
+\begin{spacing}{1.5}
+
+\pagenumbering{gobble}
+
+\begin{centering}
+
+\pagenumbering{gobble}
+
+\vspace{2cm}
+
+\large
+{\bf UAS SAINS DATA GENOM}
+
+\vspace{2cm}
+
+```{r uni_logo, echo = F, out.width = "30%"}
+knitr::include_graphics("Logo UI_2.png")
+```
+
+\vspace{2cm}
+
+\large
+{\bf Disusun oleh:}
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{ll}
+  
+  \large{\bf Diki Wahyudi} & \large{\bf 2106709131} \\
+
+  \end{tabular}
+\end{table}
+
+\vspace{1cm}
+
+\large
+{\bf PROGRAM STUDI STATISTIKA\\
+
+FAKULTAS MATEMATIKA DAN ILMU PENGETAHUAN ALAM\\
+
+UNIVERSITAS INDONESIA\\
+
+DESEMBER 2023}
+
+\end{centering}
+
+\end{spacing}
+
+\newpage
+
+\pagenumbering{roman}
+
+\newpage
+
+\renewcommand{\contentsname}{DAFTAR ISI}
+\addcontentsline{toc}{section}{\contentsname}
+\setcounter{tocdepth}{3}
+\tableofcontents
+\clearpage
+ 
+\newpage
+
+\cleardoublepage
+\pagenumbering{roman}
+\setcounter{page}{4}
+
+\phantomsection
+
+\newlength{\mylen}
+\renewcommand{\figurename}{Gambar}
+\renewcommand{\cftfigpresnum}{\figurename \enspace}
+\renewcommand{\cftfigaftersnum}{:}
+\settowidth{\mylen}{\cftfigpresnum \cftfigaftersnum}
+\addtolength{\cftfignumwidth}{\mylen}
+
+\renewcommand{\listfigurename}{DAFTAR GAMBAR}
+\addcontentsline{toc}{section}{\listfigurename}
+\listoffigures
+
+\newpage
+
+\renewcommand{\tablename}{Tabel}
+\renewcommand{\cfttabpresnum}{\tablename \enspace}
+\renewcommand{\cfttabaftersnum}{:}
+\settowidth{\mylen}{\cfttabpresnum \cfttabaftersnum}
+\addtolength{\cfttabnumwidth}{\mylen}
+
+\renewcommand{\listtablename}{DAFTAR TABEL}
+\addcontentsline{toc}{section}{\listtablename}
+\listoftables
+
+\newpage
+
+\section[I PENDAHULUAN]{I PENDAHULUAN}
+
+Kanker dimulai ketika sel-sel dalam tubuh mulai tumbuh di luar kendali. Sel di hampir semua bagian tubuh bisa menjadi sel kanker, dan kemudian menyebar ke area lain di tubuh. Kanker dapat tumbuh di bagian mana saja dalam tubuh manusia. Salah satu daerah tubuh yang dapat ditumbuhi olek kanker yaitu prostat. Kanker prostat dimulai ketika sel-sel di kelenjar prostat mulai tumbuh di luar kendali. Prostat adalah kelenjar yang hanya ditemukan pada pria. Prostat berada di bawah kandung kemih (organ berongga tempat penyimpanan urin) dan di depan rektum (bagian terakhir dari usus). Tepat di belakang prostat terdapat kelenjar yang disebut vesikula seminalis yang menghasilkan sebagian besar cairan untuk air mani. Uretra, yaitu saluran yang membawa urin dan air mani keluar tubuh melalui penis, melewati bagian tengah prostat \hyperlink{ref1}{[1]}.
+
+Hampir semua kanker prostat adalah *adenocarcinomas*. Kanker ini berkembang dari sel kelenjar (sel yang membuat cairan prostat yang ditambahkan ke air mani). Jenis kanker lain yang dapat bermula di prostat, yaitu *carcinomas* sel kecil, tumor *neuroendocrine* (selain *carcinomas* sel kecil), *carcinomas* sel transisi, *sarcomas*, dan lain-lain. Jenis kanker prostat lainnya, yang telah disebutkan sebelumnya, jarang terjadi. Jika seseorang diberi tahu bahwa seseorang tersebut mengidap kanker prostat, hampir pasti kanker itu adalah *adenocarcinomas*. Beberapa kanker prostat tumbuh dan menyebar dengan cepat, namun sebagian besar tumbuh lambat. Faktanya, penelitian otopsi menunjukkan bahwa banyak pria lanjut usia (dan bahkan beberapa pria lebih muda), yang meninggal karena sebab lain, juga menderita kanker prostat yang tidak pernah menyerang mereka selama hidup mereka. Dalam banyak kasus, baik mereka maupun dokter tidak mengetahui bahwa mereka mengidap penyakit tersebut.
+
+Kanker yang tumbuh di bagian prostat dapat menyebar ke bagian tubuh lainnya. Kanker prostat metastatik merupakan kanker yang telah menyebar dari prostat ke bagian tubuh lain. Kanker tersebut terkadang disebut sebagai kanker prostat stadium lanjut. Penyakit ini paling sering menyebar ke kelenjar getah bening di bagian lain tubuh atau ke tulang. Kanker tersebut juga bisa menyebar ke organ lain, seperti paru-paru \hyperlink{ref3}{[3]}. 
+
+Penelitian ini menggunakan data ekspresi gen GDS2546. Dataset ini mengandung data ekspresi gen dari empat jaringan berbeda, yaitu *normal prostate tissue*, *normal prostate adjacent to tumor*, *primary prostate tumor*, dan *metastatic prostate tumor*. Penelitian ini dilakukan untuk menganalisis *metastatic prostate tumor* dan *primary prostate tumor*, serta jaringan donor normal dan jaringan normal yang berdekatan dengan tumor tersebut. Analisis akan dilakukan dengan menggunakan metode *differentially expressed genes*, *clustering*, dan *classification*. Metode LIMMA akan digunakan untuk menganalisis perbedaan gen. Selain itu, berbagai macam metode pengelompokkan dan klasifikasi akan dicoba untuk menganalisis data gen tersebut. Hasil dari analisis ini diharapkan dapat memberikan wawasan tentang mekanisme molekuler yang mendasari proses metastasis.
+
+\newpage
+
+\section[II METODE ANALISIS]{II METODE ANALISIS}
+
+\pagenumbering{arabic}
+
+## Linear Models for Microarray Data (LIMMA)
+
+Saat melakukan uji $t$, kita mengesitimasi variansi setiap gen secara individu. Hal tersebut baik-baik saja jika kita memiliki cukup banyak replikasi. Namun, dengan jumlah replikasi yang sedikit (katakanlah 2–5 per kelompok), estimasi variansinya akan sangat tinggi variasinya. Dalam statistik $t$ yang dimoderasi, estimasi varian spesifik gen $s^2_g$ digantikan oleh rata-rata berbobot $s^2_g$ dan $s^2_0$, yaitu estimasi variansi global yang diperoleh dari pengumpulan (*pooled*) semua gen. Hal tersebut memberikan interpolasi antara uji $t$ dan kriteria *fold-change*. Salah satu contohnya yaitu `limma`. LIMMA pada dasarnya merupakan modifikasi dari model linier yang digunakan khusus untuk analisis ekspresi gen atau protein.
+
+LIMMA adalah *library* untuk analisis data ekspresi gen microarray, khususnya digunakan pada model linier untuk menganalisis eksperimen yang dirancang dari *differential expression*. LIMMA memberikan kemampuan untuk menganalisis perbandingan antara banyak target RNA secara bersamaan dalam eksperimen yang dirancang rumit dan *random*. Metode empiris Bayesian digunakan untuk memberikan hasil yang stabil meskipun jumlah arraynya sedikit. Model linier dan fungsi ekspresi diferensial berlaku untuk semua teknologi ekspresi gen, termasuk microarray, RNA-seq, dan PCR kuantitatif \hyperlink{ref7}{[7]}.
+
+## Clustering
+
+Analisis pengelompokkan (*clustering*) bertujuan untuk mengelompokkan observasi berdasarkan karakteristik tertentu sedemikian sehingga observasi dalam suatu kelompok lebih mirip (similar atau homogen), sedangkan antarklaster (kelompok) berbeda antara satu dengan lainnya berdasarkan karakteristik yang sama. Dengan kata lain, observasi dalam satu grup berbeda dengan observasi pada klaster atau kelompok lain. 
+
+Definisi similar atau homogen tergantung dari tujuan penelitian. Ukuran kesamaan/kemiripan yang biasa digunakan adalah fungsi jarak Euclid. Pendekatan *clustering* yang dapat dilakukan terdapat 3 cara yaitu melalui partisi, hierarki, atau *density-based*. Dalam partisi, dibuat partisi dan evaluasi berdasarkan kriteria tertentu, misalnya meminimalkan *sum of square errors*. Contoh metode yang menggunakan partisi, yaitu $k$-means, $k$-medoids, dan CLARANS. 
+
+Dalam teknik hierarki, dibuat struktur *hierarchical* menggunakan kriteria tertentu. Dalam metode hierarki, terdapat dua tipe dasar kalster yaitu *agglomerative* (pemusatan) dan *divisive* (penyebaran). Dalam metode *agglomerative*, setiap objek atau observasi dianggap sebagai sebuah klaster tersendiri. Dalam tahap selanjutnya, dua klaster yang mempunyai kemiripan digabungkan menjadi sebuah klaster baru, demikian seterusnya. Sebaliknya, dalam metode *divisive*, kita beranjak dari sebuah klaster besar yang terdiri dari semua objek atau observasi. Selanjutnya, objek atau observasi yang paling tinggi nilai ketidakmiripannya dipisahkan, demikian seterusnya. Ukuran *linkage* yang biasa digunakan dalam metode hierarki yaitu
+\begin{enumerate}
+  \item  \textit{Single Linkage (Nearest Neighbor)} \\ 
+$$D(A, B) = \text{min}\{\boldsymbol{y}_i, \boldsymbol{y}_j, \ \text{untuk} \ \boldsymbol{y}_i \ \text{dalam} \ A \ \text{dan} \ \boldsymbol{y}_j \  \text{dalam} \ B\}$$
+  \item \textit{Complete Linkage (Farthest Neighbor)} \\
+$$D(A, B) = \text{max}\{\boldsymbol{y}_i, \boldsymbol{y}_j, \ \text{untuk} \ \boldsymbol{y}_i \ \text{dalam} \ A \ \text{dan} \ \boldsymbol{y}_j \ \text{dalam} \ B\}$$
+  \item \textit{Average Linkage}
+$$D(A, B) = \frac{1}{n_A n_B}\sum_{i = 1}^{n_A}\sum_{j = 1}^{n_B}d(\boldsymbol{y}_i, \boldsymbol{y}_j)$$
+  \item \textit{Centroid}
+$$D(A, B) = d(\boldsymbol{\bar{y}}_i, \boldsymbol{\bar{y}}_j)$$
+\end{enumerate}
+
+Nonhierarki merupakan kebalikan dari metode hierarki. Metode nonhierarki tidak meliputi proses “*treelike construction*”. Metode ini justru menempatkan objek-objek ke dalam klaster sekaligus sehingga terbentuk sejumlah klaster tertentu. Langkah pertama adalah memilih sebuah klaster sebagai pusat klaster awal, dan semua objek dalam jarak tertentu ditempatkan pada kalster yang terbentuk. Kemudian, dipilih kalster selanjutnya dan penempatan dilanjutkan sampai semua objek ditempatkan. Objek-objek bisa ditempatkan lagi jika jaraknya lebih dekat pada klaster lain daripada klaster asalnya. Dalam pendekatan *density-based*, dibuat berdasarkan *connectivity* dan *density functions*. Contoh metode yang menggunakan *density-based*, yaitu DBSACN, OPTICS, dan DenClue.
+
+## Biclustering
+
+Seperti pada pendekatan analisis pengelompokkan (*clustering*), kita memulai algoritma dengan $n \times m$ matriks data $\boldsymbol{A}$:
+$$
+\begin{array}{c|ccccc}
+   & y_1 & \cdots & \ y_i &  \cdots & y_m \\ \hline
+   x_1 & a_{11} & \cdots & a_{i1} & \cdots & a_{m1} \\
+   \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+   x_j & a_{1j} & \cdots & a_{ij} & \cdots & a_{mj} \\
+   \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+   x_n & a_{1n} & \cdots & a_{in} & \cdots & a_{mn} \\
+\end{array}
+$$
+dengan objek $X$, variabel $Y$, dan entri $a_{ij}$. Tujuan dari analisis \textit{biclustering} adalah untuk menemukan subgrup $\boldsymbol{A}_{IJ}$ dari objek $I = {i_1, ..., i_k}, k \leq n, I \subset X$ yang semirip mungkin satu sama lain pada subset variabel $J = {j_1, ..., j_l}, l \leq m, J \subset Y$ dan sebisa mungkin berbeda dengan objek dan variabel lainnya. \textit{Biclsuter} $z$ kemudian didefinsikan sebagai ${BC}_z = (I_z, J_z) = A_{I_z J_z}$.
+
+Situasi umum untuk menghitung \textit{bicluster} adalah ketika dataset berdimensi tinggi dengan banyak variabel sehingga algoritma \textit{cluster} normal memberikan hasil yang tersebar karena banyak variabel yang tidak berkorelasi. \textit{Biclustering} juga berguna jika terdapat asumsi koneksi objek dan beberapa variabel dalam dataset, misalnya beberapa objek memiliki pola "mirip" untuk sekumpulan variabel tertentu.
+
+Sama seperti pengelompokan (*clustering*) tradisional, ada banyak kemungkinan untuk menghitung kesamaan dalam *bicluster*. Madeira dan Oliveira (2004) mengidentifikasi empat kelompok utama struktur di dalam submatriks:
+\begin{enumerate}
+  \item \textit{Bicluster} dengan nilai konstan: \\
+  $$a_{ij} = \mu$$
+  \item \textit{Bicluster} dengan nilai konstan pada baris atau kolom:
+  $$(a_{ij} = \mu + \alpha_i \ \text{atau} \ a_{ij} = \mu \times \alpha_i) \ \text{dan} \ (a_{ij} = \mu + \beta_j \ \text{atau} \ a_{ij} = \mu \times \beta_j)$$
+  \item \textit{Bicluster} dengan nilai koheren:
+  $$a_{ij} = \mu + \alpha_i + \beta_j \ \text{atau} \ a_{ij} = \mu \times \alpha_i \times \beta_j$$
+  \item \textit{Bicluster} dengan evolusi koheren.
+  $$a_{ih} \leq a_{ir} \leq a_{it} \leq a_{id} \ \text{atau} \ a_{hj} \leq  a_{rj} \leq a_{tj} \leq a_{dj}$$
+\end{enumerate}
+Dalam kasus yang paling sederhana, algoritma ini mampu menemukan subset dari baris dan kolom dengan nilai konstan. Metode yang sedikit ditingkatkan dapat mengidentifikasi *bicluster* dengan nilai konstan pada baris maupun nilai konstan pada kolom. Pendekatan lainnya mencari nilai yang koheren pada kolom atau baris ekspresi matriks. Artinya, setiap kolom atau baris dapat dihitung hanya dengan menjumlahkan atau mengalikan konstanta. Tipe selanjutnya bertujuan untuk menemukan *bicluster* dengan koheren evolusi. Dengan kata lain, nilai numerik pasti dari elemen matriks tidak menjadi masalah. Sebaliknya, algoritma mencari subset kolom dan baris dengan perilaku yang koheren. Jelas bahwa kasus ini disertai dengan hilangnya informasi karena matriks harus didiskritisasi karena nilai numerik pasti dari matriks tidak menjadi masalah \hyperlink{ref6}{[6]}.
+
+## Classification
+
+Klasifikasi adalah teknik dalam data science yang digunakan oleh data scientist untuk mengkategorikan data ke dalam sejumlah kelas tertentu. Teknik ini dapat dilakukan pada data terstruktur atau tidak terstruktur dan tujuan utamanya adalah untuk mengidentifikasi kategori atau kelas tempat data baru akan berada. Teknik ini juga memiliki algoritma yang dapat digunakan untuk mengaktifkan perangkat lunak analisis teks untuk melakukan tugas seperti menganalisis sentimen berbasis aspek dan mengkategorikan teks yang tidak terstruktur berdasarkan topik dan polaritas opini. Dalam metode klasifikasi, terdapat berbagai jenis algoritma. Contoh alogiritma-algoritma dalam klasifikasi, yaitu sebagai berikut.
+
+\begin{enumerate}
+  
+\item \textit{Classifier} Linier \\
+
+Dalam machine learning, tugas utama klasifikasi statistik adalah menggunakan karakteristik objek untuk menemukan kelasnya. Tugas ini dicapai dengan membuat keputusan klasifikasi berdasarkan nilai kombinasi linier dari karakteristik. Contoh algoritma klasifikasi linier yaitu sebagai berikut.
+  \begin{itemize}
+  \item Regresi Logistik \\
+  Regresi logistik adalah proses pemodelan probabilitas hasil diskrit dengan diberikan variabel masukan (\textit{input}). Regresi logistik yang paling umum memodelkan hasil biner, yaitusesuatu yang dapat berupa dua nilai, seperti benar/salah, ya/tidak, dan seterusnya.
+	\item \textit{Classifier} Naive Bayes \\
+	Naive Bayes adalah teknik klasifikasi berdasarkan teorema Bayes dengan asumsi independensi antarprediktor. Secara sederhana, pengklasifikasi (\textit{classifier}) naive Bayes mengasumsikan bahwa keberadaan fitur tertentu dalam suatu kelas tidak terkait dengan keberadaan fitur lainnya. Hal tersebut memperbarui pengetahuan selangkah demi selangkah dengan menggunakan informasi baru.
+	\item Diskriminan Linier Fisher \\
+	Diskriminan linier Fisher dapat digunakan sebagai pengklasifikasi dalam \textit{supervised learning}. Dengan adanya data berlabel, pengklasifikasi dapat menemukan sekumpulan bobot untuk menarik batas keputusan, mengklasifikasikan data. Diskriminan linier Fisher berupaya menemukan vektor yang memaksimalkan pemisahan antarkelas data yang diproyeksikan.
+	\end{itemize}
+	
+\item \textit{Support Vector Machine} (SVM) \\
+
+SVM adalah algoritma \textit{supervised learning} yang digunakan untuk klasifikasi dan analisis regresi. Dalam SVM, setiap item data diplot sebagai titik dalam ruang  $n$-dimensi dengan nilai atribut masing-masing, yaitu nilai koordinat tertentu.
+
+\item \textit{Classifier} Kuadrat \\
+
+Algoritma klasifikasi kuadrat didasarkan pada teorema Bayes. Algoritma pengklasifikasi ini berbeda dalam pendekatannya untuk klasifikasi dari regresi logistik. Dalam regresi logistik, dimungkinkan untuk menurunkan probabilitas pengamatan secara langsung untuk suatu kelas $(Y = k)$ untuk pengamatan tertentu $(X = x)$. Namun, dalam klasifikasi kuadrat, pengamatan dilakukan dalam dua langkah berikut.
+\begin{enumerate}
+  \item Pada langkah pertama, identifikasi distribusi input $X$ untuk setiap grup atau kelas.
+  \item Setelah itu, distribusi dibalik dengan bantuan teorema Bayes untuk menghitung probabilitas.
+\end{enumerate}
+
+\item Estimasi Kernel \\
+
+Estimasi kernel adalah cara nonparametrik untuk memperkirakan \textit{Probability Density Function} (PDF) dari variabel acak kontinu. Teknik tersebut merupakan teknik nonparametrik karena mengasumsikan tidak ada distribusi implisit untuk variabel. Pada dasarnya, pada setiap datum, sebuah fungsi kernel dibuat dengan datum sebagai pusatnya. Hal ini memastikan bahwa kernel simetris terhadap datum. PDF kemudian diestimasi dengan menambahkan semua fungsi kernel ini dan membaginya dengan jumlah data untuk memastikannya memenuhi dua properti PDF:
+\begin{enumerate}
+  \item setiap kemungkinan nilai PDF harus nonnegatif;
+	\item integral tetap dari PDF pada daerah asalnya harus sama dengan 1.
+\end{enumerate}
+
+\item $k$-\textit{Nearest Neighbors} \\
+
+$k$-NN ($k$-\textit{Nearest Neighbors}) merupakan algoritma \textit{classifier} yang pembelajarannya didasarkan pada kesamaan data (vektor) satu dengan lainnya. $k$-NN juga dapat digunakan untuk menyimpan semua kasus yang tersedia dan mengklasifikasikan kasus baru berdasarkan ukuran kesamaan (misalnya fungsi jarak).
+
+\item \textit{Decision Tree} (Pohon Keputusan) \\
+
+Algoritma \textit{decision tree} termasuk dalam algoritma \textit{supervised learning}. Algoritma ini dapat digunakan untuk menyelesaikan regresi dan masalah klasifikasi lainnya. \textit{Decision tree}membangun model klasifikasi atau regresi dalam bentuk struktur pohon. \textit{Decision tree} memecah dataset menjadi subset yang lebih kecil dan lebih kecil sementara pada saat yang sama pohon keputusan terkait dikembangkan secara bertahap. Tujuan penggunaan algoritma \textit{decision tree} adalah untuk memprediksi kelas atau nilai variabel target dengan mempelajari aturan keputusan sederhana yang disimpulkan dari data sebelumnya.
+
+\item \textit{Random Forest} \\
+
+\textit{Random forest} adalah metode pembelajaran ensemble untuk klasifikasi, regresi, dan tugas lain yang beroperasi dengan membangun beberapa pohon keputusan pada waktu pelatihan. Untuk tugas klasifikasi, \textit{output} dari \textit{random forest} adalah kelas yang dipilih oleh sebagian besar pohon. Untuk tugas regresi, prediksi mean atau mean dari setiap pohon merupakan \textit{output}-nya. \textit{Random forest} umumnya mengungguli \textit{decision tree}, tetapi memiliki akurasi yang lebih rendah daripada pohon yang ditingkatkan dengan gradien. Namun, karakteristik data dapat mempengaruhi kinerjanya.
+
+\newpage
+
+\item \textit{Neural Network} \\
+
+\textit{Neural network} adalah sekumpulan algoritma yang berupaya mengidentifikasi hubungan mendasar dalam kumpulan data melalui proses yang meniru cara kerja otak manusia. Dalam data science, \textit{neural network} membantu mengelompokkan dan mengklasifikasikan hubungan yang kompleks. Neural network dapat digunakan untuk mengelompokkan data yang tidak berlabel sesuai dengan kesamaan di antara input contoh dan mengklasifikasikan data ketika telah memiliki kumpulan data berlabel untuk dilatih.
+
+\end{enumerate}
+
+\newpage
+
+\section[III HASIL DAN PEMBAHASAN]{III HASIL DAN PEMBAHASAN}
+
+## Preprocessing
+
+### Import Library
+
+```{r, message = FALSE}
+library(Biobase)
+library(GEOquery)
+library(knitr)
+library(kableExtra)
+library(dplyr)
+library(genefilter)
+library(factoextra)
+library(hgu95b.db)
+library(ggplot2)
+library(limma)
+library(cluster)
+library(caret)
+library(MASS)
+library(class)
+library(party)
+library(randomForest)
+library(glmnet)
+library(tidyverse)
+library(biclust)
+library(annotate)
+library(GO.db)
+library(clusterProfiler)
+source("D:/Materi Kuliah UI/Sains Data Genom/CreateRadialPlot.R")
+```
+
+### Import Data
+
+Akan digunakan data dari NCBI dengan kode \href{https://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS2546}{GDS2546}. Dataset ini digunakan untuk menganalisis *metastatic prostate tumor* dan *primary prostate tumor*, serta jaringan donor normal dan jaringan normal yang berdekatan dengan tumor tersebut. Dataset tersebut terdiri dari 12620 gen (*features*) yang berasal dari 167 sampel. Chip menggunakan *platform* GPL92, dengan anotasi HG_U95B. Sampel dalam dataset tersebut adalah Homo sapiens (manusia). 
+
+```{r, message = FALSE, warning = FALSE}
+dtgeo <- getGEO('GDS2546', destdir = ".")
+```
+
+Selanjutnya, dataset diubah ke *expression set* agar bisa diproses lebih lanjut lagi ke *phenotype set*.
+
+### Expression Set
+
+Fungsi `GDS2eSet` digunakan untuk mengambil struktur data GDS (*Genomic Data Sharing*) dari `getGEO` dan menyesuaikannya ke dalam limma MALists atau Expression Sets. GDS ditransformasikan menjadi $\log_2$ sebelum dimasukkan ke dalam struktur data baru.
+
+```{r}
+eset <- GDS2eSet(dtgeo, do.log2 = TRUE)
+```
+
+### Phenotype Set
+
+Akan diakses data fenotipik dan metadata yang terkait dengan eksperimen.
+
+```{r, message = FALSE, warning = FALSE}
+phdtgeo <- pData(eset)
+```
+
+### Expression Data
+
+Selanjutnya, akan diakses data ekspresi gen yang disimpan dalam objek yang berasal dari kelas `eSet`.
+
+```{r}
+expdtgeo <- exprs(eset)
+dim(expdtgeo)
+kable(expdtgeo[1:10, 1:6], format = "latex", booktabs = TRUE,
+      align = rep("c", 6), caption = "\\textit{Head} dari expdtgeo") %>%
+  kable_styling(position = "center", latex_options = c("HOLD_position"))
+```
+
+```{r, message = FALSE, warning = FALSE}
+annotation(eset) <- "hgu95b"
+```
+
+### Gene Filtering
+
+Selanjutnya, akan dilakukan *gene filtering*. Hal tersebut dilakukan untuk mengeluarkan gen-gen yang tidak banyak bervariasi antarsampel, memiliki ekspresi yang kecil di seluruh sampel, dan juga gen yang tidak memiliki cukup anotasi. Proses ini dilakukan agar dapat mengurangi terjadinya *false positif* (kesalahan tipe I yaitu $\alpha = \Pr(\mbox{Menolak} \ H_0|H_0 \ \mbox{benar})$) yang akan meningkatkan *power* (peluang hasil uji statistik untuk bebas dari kesalahan statistik tipe II) dari analisis data ini.
+
+```{r, message = FALSE, warning = FALSE}
+esetFilt <- nsFilter(eset)
+# Hasi filtering
+esetFilt
+```
+
+Akhirnya, ekspresi gen yang sudah di-*filter* bisa diekstraksi untuk diproses lebih lanjut.
+
+```{r}
+# Extract the expression of the filtered dataset
+expdtgeoFilt <- exprs(esetFilt$eset)
+```
+
+Setelah tahap tersebut, bisa dilakukan *plotting* untuk melihat perbedaan sebelum dan sesudah *filtering*.
+
+```{r, fig.cap = "Grafik Perbandingan Ekspresi Gen Sebelum dan Sesudah \\textit{Filtering}", out.width = "50%", out.height = "50%", fig.align = "center"}
+par(mfrow = c(1, 2))
+hist(expdtgeo, main = "Original", col = "lightblue")
+hist(expdtgeoFilt, main = "Filtered", col = "lightblue")
+par(mfrow = c(1, 1))
+```
+
+Dari hasil di atas, didapatkan informasi bahwa sebelum dilakukan *filtering* terdapat 12620 *features*/*gene* dan setelah *filtering* tersisa 3430 gen. Gen yang disaring merupakan gen yang memiliki ekspresi rendah seperti terlihat pada histogram di atas.
+
+## Exploratory Data Analysis (EDA)
+
+Faktor dalam data ekspresi gen ini merupakan jaringan yang terdiri atas 4 jenis, yaitu *normal prostate tissue*, *normal prostate adjacent to tumor*, *primary prostate tumor*, dan *metastatic prostate tumor*.
+
+```{r}
+vargrp <- phdtgeo[, 2]
+table(vargrp)
+```
+
+```{r, fig.cap = "\\textit{Bar Plot} Jumlah Kategori \\textit{Tissue}"}
+ggplot(data.frame(type = vargrp), aes(y = type, fill = type)) + geom_bar() 
+```
+
+Dalam data ini, terlihat bahwa *primary prostate tumor* merupakan jenis *tissue* (jaringan) terbanyak, dengan persentase sekitar 39.52%. Selanjutnya, akan dibuat *dissimilarity matrix plot* dari `t(expdtgeoFilt)`, yaitu *transpose* dari `expdtgeoFilt` agar ukuran matriks disimilaritasnya kecil.
+
+```{r, warning = FALSE, message = FALSE, fig.cap = "\\textit{Dissimilarity Matrix Plot} dari t(expdtgeoFilt)"}
+dist.eucl <- dist(t(expdtgeoFilt), method = "euclidean")
+fviz_dist(dist.eucl, show_labels = FALSE) + labs(title = "Data Ekspresi Gen (Sampel)") 
+```
+
+Dari warna grafik tersebut, terlihat bahwa makin ke kanan atas, jarak antara ekspresi gen sampel makin dekat.
+
+## Linear Models for Microarray Data (LIMMA) 
+
+Pada bagian ini, akan dilakukan analisis LIMMA pada keempat jenis jaringan kanker prostat. Pertama, akan dibuat matriks model (*design matrix*) berdasarkan jenis jaringan. Dalam model matriks, akan digunakan `+ 0` dalam model yang menyetel intersep ke 0 sehingga efek jaringan menangkap ekspresi untuk grup tersebut, bukan perbedaan dari grup terhadap *base level*.
+
+```{r}
+# Create the design matrix
+des_mat <- model.matrix(~ vargrp + 0)
+colnames(des_mat) <- c("mpt", "npat", "nptissue", "ppt")
+head(des_mat, 15)
+```
+
+Selanjutnya, akan dilakukan *fitting* model *differential expression* pada data. Model LIMMA untuk data ini yaitu 
+
+$$\boldsymbol{Y}_j^T = (Y_{1j}, ..., Y_{N_j})$$
+$$E(\boldsymbol{Y}_j) = \boldsymbol{X}\boldsymbol{\beta}_j$$
+di mana $\boldsymbol{Y}_j$: ekspresi gen, $\boldsymbol{X}$: matriks model (*design matrix*) yang *full rank* (misalnya kondisi grup), dan $\boldsymbol{\beta}_j$: vektor efek dari kolom di matriks $\boldsymbol{X}$, $\boldsymbol{\beta}_j^T = (\beta_{j1}, \beta_{j2}, \beta_{j3}, \beta_{j4})$ dengan $\beta_{jk}$ merupakan ekspektasi dari level ekspresi dari gen $j$ dalam grup $k$. Keterangan level: *metastatic prostate tumor* (`mpt`) = 1, *normal prostate adjacent to tumor* (`npat`) = 2, *normal prostate tissue* (`nptissue`) = 3, dan *primary prostate tumor* (`ppt`) = 4.
+
+```{r}
+# Apply linear model to data
+fit <- lmFit(expdtgeoFilt, design = des_mat)
+# Apply empirical Bayes to smooth standard errors
+fit <- eBayes(fit)
+```
+
+Setelah *fitting* model, ingin diselidiki perbedaan di antara semua kelompok dengan menggunakan *contrast* sebagai berikut.
+
+$$\boldsymbol{C} = \begin{bmatrix} 1 & 1 & 1 & 0 & 0 & 0 \\ -1 & 0 & 0 & 1 & 1 & 0 \\ 0 & -1 & 0 & -1 & 0 & 1 \\ 0 & 0 & -1 & 0 & -1 & -1 \end{bmatrix}$$
+
+\begin{equation} \label{eq:contrast}
+\begin{split} 
+\boldsymbol{T}_j &= \boldsymbol{C}^T\boldsymbol{\beta}_j \\
+&= \begin{bmatrix} 1 & -1 & 0 & 0 \\ 1 & 0 & -1 & 0 \\ 1 & 0 & 0 & -1 \\ 0 & 1 & -1 & 0 \\ 0 & 1 & 0 & -1 \\ 0 & 0 & 1 & -1 \end{bmatrix} \begin{bmatrix} \beta_{j1} \\ \beta_{j2} \\ \beta_{j3} \\ \beta_{j4} \end{bmatrix} \\
+&= \begin{bmatrix} \beta_{j1} - \beta_{j2} \\ \beta_{j1} - \beta_{j3} \\ \beta_{j1} - \beta_{j4} \\ \beta_{j2} - \beta_{j3} \\ \beta_{j2} - \beta_{j4} \\ \beta_{j3} - \beta_{j4} \end{bmatrix}
+\end{split}
+\end{equation}
+
+Keterangan: $\boldsymbol{T}_j$ merupakan ekspektasi dari perbedaan dalam level ekspresi dari gen $j$ dengan perbandingan *metastatic prostate tumor* versus *normal prostate adjacent to tumor*, *metastatic prostate tumor* versus *normal prostate tissue*, *metastatic prostate tumor* versus *primary prostate tumor*, *normal prostate adjacent to tumor* versus *normal prostate tissue*, *normal prostate adjacent to tumor* versus *primary prostate tumor*, dan *normal prostate tissue* versus *primary prostate tumor*.
+
+```{r}
+contrast_matrix <- makeContrasts(
+  "mpt.vs.npat" = mpt - npat,
+  "mpt.vs.nptissue" = mpt - nptissue,
+  "mpt.vs.ppt" = mpt - ppt,
+  "npat.vs.nptissue" = npat - nptissue,
+  "npat.vs.ppt" = npat - ppt,
+  "nptissue.vs.ppt" = nptissue - ppt,
+  levels = colnames(des_mat)
+)
+contrast_matrix
+fit <- contrasts.fit(fit, contrast_matrix) 
+```
+
+Beberapa koreksi pengujian diperlukan setiap kali beberapa pengujian hipotesis (*multiple hypothesis tests*) dilakukan, untuk meminimalkan jumlah *false positif* yang diperoleh. Dalam analisis ini, akan digunakan metode *False Discovery Rate* (FDR) untuk melakukan koreksi *multiple hypothesis tests*, dan menetapkan batas signifikansi pada 0.05. Ini berarti bahwa hanya gen dengan nilai $p-value$ yang disesuaikan dengan FDR < 0.05 dan perubahan $\log_2$ absolut sebesar 1 atau lebih yang akan dianggap *berbeda secara signifikan*.
+
+```{r}
+# Identifying differentially expressed genes
+results <- decideTests(fit, p.value = 0.05, adjust.method = "fdr")
+summary(results)
+```
+
+Didapatkan informasi bahwa jenis jaringan yang paling banyak berbeda secara signifikan yaitu *metastatic prostate tumor* versus *normal prostate adjacent to tumor*, dengan jumlah yang signifikan berbeda sebanyak 635 + 522 = 1157. Selanjutnya, akan dibuat tabel hasil berdasarkan model yang dilengkapi kontras. Langkah ini akan menerapkan koreksi *multiple hypothesis tests* Benjamini-Hochberg. Default fungsi `topTable()` adalah menggunakan metode koreksi Benjamini-Hochberg.
+
+```{r}
+# Re-smooth the Bayes
+contrasts_fit <- eBayes(fit)
+# Apply multiple testing correction and obtain stats
+stats_df <- topTable(contrasts_fit, number = nrow(expdtgeoFilt)) %>%
+  tibble::rownames_to_column("Gene")
+kable(head(stats_df, 15), format = "latex", booktabs = TRUE,
+      align = rep("c", 11), caption = "\\textit{Head} dari stats\\_df") %>%
+  kable_styling(position = "center", latex_options = c("scale_down", "HOLD_position"))
+```
+
+Untuk menguji apakah hasil tersebut masuk akal, dapat dibuat plot dari salah satu gen teratas. Akan diekstrak data untuk gen `45269_at`, kemudian akan dibuat dataframe untuk tujuan visualisasi. Berdasarkan hasil di `stats_df`, diperkirakan keempat jenis jaringan tersebut berbeda secara signifikan.
+
+```{r}
+top_gene_df <- data.frame(X45269_at = expdtgeoFilt["45269_at", ], vargrp)
+```
+
+```{r, fig.cap = "\\textit{Scatter Plot} Ekspresi Gen 45269\\_at Berdasarkan Jenis Jaringan"}
+ggplot(top_gene_df, aes(x = vargrp, y = X45269_at, color = vargrp)) +
+  labs(y = "45269_at") + 
+  geom_jitter(width = 0.2, height = 0) + # Make this a jitter plot
+  theme_classic() # This makes some aesthetic changes
+```
+
+Hasil visualisasi tersebut sejalan dengan `stat_df` sebelumnya di mana keempat jenis jaringan berbeda secara signifikan. Selanjutnya, akan dibuat *volcano plot* dari data tersebut.
+
+```{r}
+# Let's extract the contrast p-values for each and transform them with -log10()
+contrast_p_vals_df <- -log10(contrasts_fit$p.value) %>%
+  # Make this into a dataframe
+  as.data.frame() %>%
+  # Store genes as their own column
+  tibble::rownames_to_column("Gene") %>%
+  # Make this into long format
+  tidyr::pivot_longer(dplyr::contains("vs"),
+                      names_to = "contrast",
+                      values_to = "neg_log10_p_val")
+# Let's extract the fold changes from stats_df
+log_fc_df <- stats_df %>%
+  # Only want to keep the `Gene` column as well
+  dplyr::select("Gene", dplyr::contains("vs")) %>%
+  # Make this a longer format
+  tidyr::pivot_longer(dplyr::contains("vs"),
+                      names_to = "contrast",
+                      values_to = "logFoldChange")
+plot_df <- log_fc_df %>%
+  dplyr::inner_join(contrast_p_vals_df,
+                    by = c("Gene", "contrast"),
+                    # This argument will add the given suffixes to the column names
+                    # from the respective dataframes, helping us keep track of which columns
+                    # hold which types of values
+                    suffix = c("_log_fc", "_p_val"))
+```
+
+```{r, dev = "png", fig.cap = "\\textit{Volcano Plot} dari Masing-Masing \\textit{Contrast}"}
+# Convert p-value cutoff to negative log 10 scale
+p_val_cutoff <- -log10(0.05)
+# Absolute value cutoff for fold changes
+abs_fc_cutoff <- 5
+plot_df <- plot_df %>% 
+  dplyr::mutate(signif_label = dplyr::case_when(
+    abs(logFoldChange)>abs_fc_cutoff & neg_log10_p_val>p_val_cutoff ~ "p-val and FC",
+    abs(logFoldChange)>abs_fc_cutoff ~ "FC",
+    neg_log10_p_val>p_val_cutoff ~ "p-val",
+    TRUE ~ "NS"))
+volcanoes_plot <- ggplot(plot_df,
+  aes(
+    x = logFoldChange, # Fold change as x value
+    y = neg_log10_p_val, # -log10(p-value) for the contrasts
+    color = signif_label # Color code by significance cutoffs variable
+  )) +
+  # Make a scatter plot with points that are 30% opaque using `alpha`
+  geom_point(alpha = 0.3) +
+  # Draw our `p_val_cutoff` for line here
+  geom_hline(yintercept = p_val_cutoff, linetype = "dashed") +
+  # Using our `abs_fc_cutoff` for our lines here
+  geom_vline(xintercept = c(-abs_fc_cutoff, abs_fc_cutoff), linetype = "dashed") +
+  # Specify color
+  scale_colour_manual(values = c("#67a9cf", "darkgray", "gray", "#a1d76a")) +
+  # Let's be more specific about what this p-value is in our y axis label
+  ylab("Contrast -log10(p value)") +
+  # This makes separate plots for each contrast
+  facet_wrap(~ contrast) + 
+  theme(text = element_text(size = 7)) + theme_classic()
+# Print out the plot
+volcanoes_plot
+```
+
+Akan dicari top 50 dari gen-gen yang berbeda antara keempat jenis jaringan tersebut menggunakan fungsi `topTable`, sama seperti yang telah dilakukan sebelumnya. 
+
+```{r}
+topResult <- topTable(contrasts_fit, number = 50)
+```
+
+Selanjutnya, akan ditampilkan pola ekspresi dari 50 gen tersebut dengan menggunakan *heat map* dan *box plot*.
+
+```{r}
+# Selected genes
+rownames(topResult)
+# Extract selected genes names
+selected <- rownames(expdtgeoFilt) %in% rownames(topResult)
+# Extract the expression of the selected genes
+exptop50 <- expdtgeoFilt[selected, ]
+```
+
+```{r, fig.cap = "\\textit{Heat Map} dari Ekspresi Gen Dataframe expdtgeoFilt"}
+# Heat map of the top genes
+heatmap(exptop50)
+```
+
+```{r}
+# Heat map dari kategori grup
+exptop50_2 <- exptop50
+colnames(exptop50_2) <- vargrp
+```
+
+```{r, fig.cap = "\\textit{Heat Map} dari Ekspresi Gen Dataframe expdtgeoFilt dengan Label Grup"}
+heatmap(exptop50_2)
+```
+
+Terlihat bahwa ekpresi gen dari jenis jaringan *metastatic prostate tumor* secara umum berbeda dibandingkan ketiga jaringan lainnya.
+
+```{r, fig.cap = "\\textit{Box Plot} dari Top 4 Gen \\textit{Differentialy Expressed} Dataframe expdtgeoFilt"}
+# Boxplot for the top 4 genes
+par(mfrow = c(2, 2))
+for(i in 1:4){
+  df_bp <- data.frame(y = exptop50[i, ], vargrp)
+  df_bp$vargrp <- factor(df_bp$vargrp)
+  boxplot(df_bp$y ~ df_bp$vargrp, xlab = "type", ylab = "Expression Gene",
+          col = c("#2E9FDF", "#00AFBB", "#E7B800", "#FC4E07"), 
+          cex.axis = 0.7, cex.lab = 0.7, main = rownames(exptop50)[i])
+}
+par(mfrow = c(1, 1))
+```
+
+Dari *box plot* di atas, terlihat bahwa setiap gen memiliki karakteristik yang berbeda terhadap keempat jaringan.
+
+## Clustering of Samples
+
+Akan dilakukan berbagai macam algoritma *clustering* berdasarkan sampel. Karena label dari sampel telah diketahui, *clustering* pada sampel akan dilakukan dengan prinsip klasifikasi untuk mengetahui model yang terbaik. Setelah mendapatkan hasil klaster, di mana klaster dibagi menjadi 4 sesuai dengan grup aslinya, selanjutnya dibuat tabel kontingensi dari hasil klaster dengan grup aslinya. Kemudian, dilakukan perhitungan akurasi pada tabel kontingensi tersebut, di mana model dengan akurasi yang paling tinggi akan digunakan sebagai model terbaik.
+
+### 1. $k$-Means
+
+Akan di-*set* jumlah klaster $k = 4$ berdasarkan grup aslinya. Kemudian, akan dilakukan pengelompokan $k$-means berdasarkan sampel. 
+
+```{r}
+cl <- vargrp
+k <- 4
+seed <- 123
+set.seed(seed)
+k_means <- kmeans(t(expdtgeoFilt), centers = k)
+table(k_means$cluster, cl)
+# Akurasi
+(ac1 <- sum(diag(table(k_means$cluster, cl)))/sum(table(k_means$cluster, cl)))
+sprintf("Akurasi = %.2f%%", ac1*100)
+```
+
+Dengan menggunakan $k$-means dengan $k = 4$ didapatkan akurasi sebesar `r ac1*100`\%. 
+
+### 2. Partitioning Around Medoids (PAM)
+
+Selanjutnya, akan dilakukan pengelompokkan dengan menggunakan metode PAM. Metode dengan mempartisi di sekitar medoid merupakan generalisasi dari $k$-means.
+
+```{r}
+result <- pam(t(expdtgeoFilt), k)
+groups <- result$clustering
+table(groups, cl)
+# Akurasi
+ac2 <- sum(diag(table(groups, cl)))/sum(table(groups, cl))
+sprintf("Akurasi = %.2f%%", ac2*100)
+```
+
+Dengan menggunakan PAM dengan $k = 4$ didapatkan akurasi sebesar 14.37126\%. 
+
+### 3. Hierarchical Clustering
+
+Selanjutnya, akan dilakukan pengelompokkan dengan metode hierarki dengan berbagai macam *linkage*.
+
+```{r}
+d <- dist(t(expdtgeoFilt))
+# Single Linkage 
+res1 <- hclust(d, method = "single" ) 
+gr1 <- cutree(res1, k = k)
+table(gr1, cl)
+# Akurasi
+ac3 <- sum(diag(table(gr1, cl)))/sum(table(gr1, cl))
+sprintf("Akurasi = %.2f%%", ac3*100)
+```
+
+```{r}
+# Complete Linkage
+res2 <- hclust(d, method = "complete")
+gr2 <- cutree(res2, k = k)
+table(gr2, cl)
+# Akurasi
+ac4 <- sum(diag(table(gr2, cl)))/sum(table(gr2, cl))
+sprintf("Akurasi = %.2f%%", ac4*100)
+```
+
+```{r}
+# Average Linkage
+res3 <- hclust(d, method = "average")
+gr3 <- cutree(res3, k = k)
+table(gr3, cl)
+# Akurasi
+ac5 <- sum(diag(table(gr3, cl)))/sum(table(gr3, cl))
+sprintf("Akurasi = %.2f%%", ac5*100)
+```
+
+```{r}
+# Ward's Linkage
+res4 <- hclust(d, method = "ward.D")
+gr4 <- cutree(res4, k = k)
+table(gr4, cl)
+# Akurasi
+ac6 <- sum(diag(table(gr4, cl)))/sum(table(gr4, cl))
+sprintf("Akurasi = %.2f%%", ac6*100)
+```
+
+Berdasarkan hasil di atas, didapatkan bahwa metode hierarki dengan *complete linkage* menghasilkan akurasi yang paling tinggi, yaitu 16.16766\%.
+
+### Cluster Validation
+
+Karena label pada sampel sudah diketahui, jadi tidak perlu lagi dilakukan validasi dari nilai $k = 4$ karena nilai tersebut didasarkan pada label aslinya pada data.
+
+### Model Akhir
+
+Karena model dengan akurasi yang paling tinggi adalah $k$-means dengan akurasi `r ac1*100`\%, maka model akhir yang akan dipakai adalah $k$-means dengan $k = 4$.
+
+### Cluster Profiling
+
+Pada bagian ini, akan dibuat *cluster plot* dan *radar plot* dengan menggunakan metode $k$-means ($k = 4$).
+
+```{r}
+set.seed(seed)
+kmres <- kmeans(t(expdtgeoFilt), centers = k)
+table(kmres$cluster, cl)
+# Akurasi
+(ac1 <- sum(diag(table(kmres$cluster, cl)))/sum(table(kmres$cluster, cl)))
+sprintf("Akurasi = %.2f%%", ac1*100)
+```
+
+#### 1. Cluster Plot
+
+\mbox{}
+
+```{r, fig.cap = "Plot \\textit{Clustering} Berdasarkan Sampel dengan Metode k-Means"}
+fviz_cluster(kmres, data = t(expdtgeoFilt),
+             palette = c("#00AFBB", "#2E9FDF", "#E7B800", "#FC4E07"),
+             ggtheme = theme_minimal(),
+             main = "Partitioning Clustering Plot")
+```
+
+Dari hasil *cluster plot* di atas, dapat dilihat bahwa klaster 2, 3, dan 4 tidak memisah dengan sempurna karena terdapat sampel yang saling tumpang-tindih.
+
+#### 2. Radar Plot
+
+\mbox{}
+
+Karena jumlah variabelnya banyak, akan digunakan 10 variabel saja agar visualisasinya tidak menumpuk.
+
+```{r, fig.cap = "\\textit{Radar Plot Cluster} Berdasarkan Sampel"}
+temp <- data.frame(group = c(1:4), kmres$centers)
+kable(temp[, 1:11], format = "latex", booktabs = TRUE, 
+      align = rep("c", 11), caption = "Cuplikan Dataframe temp") %>%
+  kable_styling(position = "center", latex_options = c("scale_down", "HOLD_position"))
+CreateRadialPlot(temp[, 1:11], grid.max = max(temp[, 1:11]) + 0.5, 
+                 grid.min = min(temp[, 1:11]) - 0.5, 
+                 centre.y = min(temp[, 1:11]) - 0.7, 
+                 label.centre.y = TRUE, label.gridline.min = FALSE)  
+```
+
+Hasil radar plot di atas menunjukkan bahwa keempat klaster memiliki variasi yang hampir mirip dengan hampir sejajarnya titik-titik dan garis antara keempat klaster. Selain itu, terlihat bahwa gen 4754 memiliki variabilitas yang tinggi terhadap empat klaster. 
+
+## Clustering of Genes
+
+Ukuran data pada data ekspresi gen yang telah di-*filter*, yaitu jumlah sampel = 167 dan jumlah gen = 3430. Kedua entitas tersebut tidak memiliki jumlah proporsional jika dilakukan pengelompokkan terhadap gen karena jumlah gen > jumlah sampel. Oleh karena itu, akan dilakukan *filtering* lagi terhadap jumlah gen agar jumlahnya proporsional. Selain itu, untuk meningkatkan hasil penelitian, kita harus mencoba menghindari gen yang hanya menyumbang *noise* dan tidak memberikan informasi. Pendekatan sederhana yang dapat dilakukan untuk mengatasi hal tersebut, yaitu dengan mengecualikan semua gen yang tidak menunjukkan varian di semua sampel.
+
+### Gene Selection Before Clustering Samples
+
+Pada bagian ini, akan dilakukan seleksi gen berdasarkan variansinya kemudian dipilih 100 gen dengan variansi tertinggi.
+
+```{r}
+genes.var <- apply(expdtgeoFilt, 1, var)
+genes.var.select <- order(-genes.var)[1:100]
+data.s <- expdtgeoFilt[genes.var.select, ]
+```
+
+### $k$-Means
+
+Akan dilakukan *clustering* berdasarkan gen dengan menggunakan metode $k$-means. Untuk menentukan nilai $k$, akan digunakan *cluster validation* dengan metode *gap statistic*. Didapatkan hasil sebagai berikut.
+
+```{r}
+set.seed(seed)
+gap_stat <- clusGap(data.s, FUN = kmeans, nstart = 25, K.max = 7, B = 50)
+# Print the result
+print(gap_stat, method = "firstmax")
+```
+
+Dari hasil di atas, terlihat bahwa kolom pertama dan kolom kedua masing-masing adalah nilai $\log W_k$ dan $\log W_{kb}$ yang dilanjutkan dengan *gap statistic* dan standard eror dari *gap statistic*. Untuk menentukan jumlah klaster yang optimal, dapat menggunakan plot sebagai berikut.
+
+```{r, fig.cap = "Grafik Jumlah Klaster Berdasarkan \\textit{Gap Statistic}"}
+fviz_gap_stat(gap_stat)
+```
+
+Dari plot tersebut, didapatkan bahwa klaster yang optimal adalah $k = 6$.
+
+### Model Akhir
+
+Berdasarkan *cluster validation*, didapatkan bahwa nilai $k$ yang paling optimal adalah $k = 6$. Oleh karena itu, model akhir yang akan dipakai adalah $k$-means dengan $k = 6$.
+
+### Cluster Profiling
+
+Pada bagian ini, akan dibuat *cluster plot* dan *radar plot* dengan menggunakan metode $k$-means ($k = 6$).
+
+```{r}
+set.seed(seed)
+kmres2 <- kmeans(data.s, centers = 6)
+```
+
+#### 1. Cluster Plot
+
+\mbox{}
+
+```{r, fig.cap = "Plot \\textit{Clustering} Berdasarkan Gen dengan Metode k-Means"}
+fviz_cluster(kmres2, data = data.s,
+             ggtheme = theme_minimal(),
+             main = "Partitioning Clustering Plot")
+```
+
+Dari hasil *cluster plot* di atas, dapat terlihat bahwa klaster 1 dan 2 tidak memisah dengan sempurna karena terdapat gen yang saling tumpang-tindih.
+
+#### 2. Radar Plot
+
+\mbox{}
+
+Karena jumlah variabelnya banyak, akan digunakan 10 variabel saja agar visualisasinya tidak menumpuk.
+
+```{r}
+temp2 <- data.frame(group = c(1:6), kmres2$centers)
+kable(temp2[, 1:11], format = "latex", booktabs = TRUE, 
+      align = rep("c", 11), caption = "Cuplikan Dataframe temp2") %>%
+  kable_styling(position = "center", latex_options = c("scale_down", "HOLD_position"))
+```
+
+```{r, fig.cap = "\\textit{Radar Plot Cluster} Berdasarkan Gen"}
+CreateRadialPlot(temp2[, 1:11], grid.max = max(temp2[, 1:11]) + 0.5, 
+                 grid.min = min(temp2[, 1:11]) - 0.5, 
+                 centre.y = min(temp2[, 1:11]) - 0.7, 
+                 label.centre.y = TRUE, label.gridline.min = FALSE)  
+```
+
+Hasil *radar plot* di atas menunjukkan keenam klaster memiliki variasi yang sangat berbeda. Klaster 5 memiliki variasi ekspresi gen yang paling tinggi, sedangkan klaster 1 memiliki variasi ekspresi gen yang paling rendah. 
+
+## Biclustering
+
+Pada bagian ini, akan dilakukan pengelompokkan (*clustering*) berdasarkan baris dan kolom secara bersamaan. *Biclustering* akan dilakukan dengan menggunakan fungsi `biclust` dengan metode `BCBimax()`. Data yang digunakan pada bagian ini adalah `data.s`, yang merupakan data 100 ekspresi gen varian teratas.
+
+```{r}
+biclust_m <- biclust(data.s, method = BCBimax())
+biclust_m
+```
+
+Terlihat bahwa terdapat 100 klaster yang ditemukan, dengan klaster pertama terdiri dari 100 baris dan 81 kolom. Selanjutnya, hasil *biclustering* tersebut akan divisualisasikan.
+
+```{r, fig.cap = "\\textit{Heat Map} dari \\textit{Biclsutering}"}
+drawHeatmap2(x = data.s, bicResult = biclust_m, number = 100) 
+```
+
+Dari *heat map* tersebut tidak terlihat pola yang jelas dari 100 klaster yang terbentuk.
+
+## Classification
+
+Karena perintah dari soal adalah klasifikasi pada 2 kelompok, maka akan dibuat dataframe baru, yaitu `df2`, yang merupakan subset dari dataframe `expdtgeoFilt` dengan jenis jaringan *normal prostate tissue* dan *metastatic prostate tumor* saja. Akan dilakukan kalsifikasi untuk memprediksi berdasarkan data ekspresi gen yang diberikan apakah ekspresi gen tersebut merupakan jaringan *normal prostate tissue* atau *metastatic prostate tumor*.
+
+```{r}
+tipe <- c("normal prostate tissue", "metastatic prostate tumor")
+tipe_2 <- vargrp[which(vargrp %in% tipe)]
+df2 <- expdtgeoFilt[, which(vargrp %in% tipe)]
+df2 <- data.frame(t(df2), tipe = tipe_2)
+df2$tipe <- ifelse(df2$tipe=="normal prostate tissue", "ntissue", "mpt")
+dim(df2)
+kable(df2[1:7, 1:7], format = "latex", booktabs = TRUE,
+      align = rep("c", 7), caption = "\\textit{Head} dari df2") %>%
+  kable_styling(position = "center", latex_options = c("HOLD_position"))
+```
+
+Kemudian, data tersebut akan dibagi menjadi data `train` dan `test` dengan perbandingan 70/30.
+
+```{r}
+set.seed(seed)
+train.index <- createDataPartition(df2$tipe, p = 0.7, list = FALSE)
+train <- df2[train.index, ]
+train$tipe <- factor(train$tipe)
+test <- df2[-train.index, ]
+test$tipe <- factor(test$tipe)
+table(train$tipe)/sum(table(train$tipe))
+table(test$tipe)/sum(table(test$tipe))
+```
+
+Selanjutnya, akan dilakukan berbagai macam algoritma klasifikasi dengan menggunakan $k$-*fold cross validation* dan *hyperparameter tuning*. Nilai $k$ yang digunakan adalah $k = 5$. Didapatkan hasil sebagai berikut.
+
+```{r}
+# k-fold (k = 5)
+ctrl <- trainControl(method = "cv", number = 5)
+```
+
+### 1. Linear Discriminant Analysis (LDA)
+
+Akan dilakukan klasifikasi pada sampel berdasarkan grupnya dengan menggunakan metode LDA. Klasifikasi dilakukan pada dataframe `df2`. Didapatkan hasil sebagai berikut.
+
+```{r}
+lda.fit <- train(tipe ~ ., data = train, trControl = ctrl, method = "lda")
+kable(lda.fit$results, format = "latex", booktabs = TRUE,
+      align = rep("c", 5), caption = "Hasil Akurasi dengan Metode LDA") %>%
+  kable_styling(position = "center", latex_options = c("HOLD_position"))
+```
+
+### 2. Regresi Logistik
+
+Akan dilakukan klasifikasi pada sampel berdasarkan grupnya dengan menggunakan metode regresi logistik. Klasifikasi dilakukan pada dataframe `df2`. Didapatkan hasil sebagai berikut.
+
+```{r}
+logit.fit <- train(tipe ~ ., data = train, trControl = ctrl,
+                   method = "glm", family = "binomial")
+kable(logit.fit$results, format = "latex", booktabs = TRUE,
+      align = rep("c", 5), caption = "Hasil Akurasi dengan Metode Regresi Logistik") %>%
+  kable_styling(position = "center", latex_options = c("HOLD_position"))
+```
+
+### 3. $k$-Nearest Neighbour ($k$-NN)
+
+Akan dilakukan klasifikasi pada sampel berdasarkan grupnya dengan menggunakan metode $k$-NN. Klasifikasi dilakukan pada dataframe `df2`. Didapatkan hasil sebagai berikut.
+
+```{r}
+knn.fit <- train(tipe ~ ., data = train, trControl = ctrl, method = "knn",
+                 preProcess = c("center", "scale"),
+                 tuneGrid = expand.grid(k = seq(1, 10, by = 2)))
+kable(knn.fit$results, format = "latex", booktabs = TRUE,
+      align = rep("c", 5), caption = "Hasil Akurasi dengan Metode k-NN") %>%
+  kable_styling(position = "center", latex_options = c("HOLD_position"))
+```
+
+### 4. Decision Tree
+
+Akan dilakukan klasifikasi pada sampel berdasarkan grupnya dengan menggunakan metode *decision tree*. Klasifikasi dilakukan pada dataframe `df2`. Didapatkan hasil sebagai berikut.
+
+```{r}
+dt.fit <- train(tipe ~ ., data = train, trControl = ctrl, method = "ctree")
+kable(dt.fit$results, format = "latex", booktabs = TRUE,
+             align = rep("c", 5), caption = "Hasil Akurasi dengan Metode Decision Tree") %>%
+  kable_styling(position = "center", latex_options = c("HOLD_position"))
+```
+
+### 5. Random Forest
+
+Akan dilakukan klasifikasi pada sampel berdasarkan grupnya dengan menggunakan metode *random forest*. Klasifikasi dilakukan pada dataframe `df2`. Didapatkan hasil sebagai berikut.
+
+```{r}
+rf.fit <- train(tipe ~ ., data = train, trControl = ctrl, method = "rf") 
+kable(rf.fit$results, format = "latex", booktabs = TRUE,
+             align = rep("c", 5), caption = "Hasil Akurasi dengan Metode Random Forest") %>%
+  kable_styling(position = "center", latex_options = c("HOLD_position"))
+```
+
+### 6. Penalized Logistic Regression
+
+Akan dilakukan klasifikasi pada sampel berdasarkan grupnya dengan menggunakan metode *penalized logistic regression*. Klasifikasi dilakukan pada dataframe `df2`. Didapatkan hasil sebagai berikut.
+
+```{r}
+plogit.fit <- train(train[, -3431], train[, 3431], trControl = ctrl, 
+                method = "glmnet", family = "binomial") 
+kable(plogit.fit$results, format = "latex", booktabs = TRUE,
+      align = rep("c", 6), 
+      caption = "Hasil Akurasi dengan Metode Penalized Logistic Regression") %>%
+  kable_styling(position = "center", latex_options = c("HOLD_position"))
+```
+
+### Model Akhir
+
+Dari $k$-*fold cross validation* dengan $k = 5$ di atas, didapatkan bahwa secara umum akurasi prediksi model cukup tinggi. Hanya model regresi logistik yang memiliki rata-rata akurasi yang relatif rendah dibandingkan model yang lainnya, yaitu 45.14286\%. Model $k$-NN dengan $k = 5$ menghasilkan rata-rata akurasi yang tinggi, yaitu 100% dengan standar deviasi 0. Model ini dipilih sebagai model akhir karena rata-rata akurasi dari model $k$-NN lebih stabil dibandingkan dengan model lainnya. Jadi, model klasifikasi terbaik untuk data ekspresi gen ini adalah $k$-NN dengan $k = 5$.
+
+```{r}
+knn.fit$finalModel
+```
+
+### Prediksi
+
+Akan dilakukan prediksi dari data `test` dengan menggunakan model terbaik $k$-NN ($k = 5$) yang telah didapatkan sebelumnya.
+
+```{r}
+pred <- predict(knn.fit, test)
+(cm <- table(pred, test$tipe))
+ac <- sum(diag(cm))/sum(cm)
+sprintf("Akurasi = %.2f%%", ac*100)
+```
+
+Terlihat bahwa akurasi prediksi data `test` dengan menggunakan model ini adalah 100\%.
+
+\newpage
+
+# IV KESIMPULAN
+
+Dari hasil analisis sebelumnya, didapatkan tiga *insight*, yaitu sebagai berikut.
+
+## Insight 1
+
+Analisis *differentially expressed genes* telah dilakukan dengan menggunakan metode LIMMA. Dengan menggunakan *contrast* pada persamaan (\ref{eq:contrast}), didapatkan gen-gen dengan ekpresi gen yang berbeda secara signifikan. Pada bagian ini, akan dicari nama dan deskripsi dari gen-gen tersebut. 
+
+```{r, message = FALSE, warning = FALSE}
+# See gene name and description
+ids1 <- rownames(topResult)
+GeneSelected1 <- AnnotationDbi::select(hgu95b.db, ids1, 
+                                      c("SYMBOL", "ENTREZID", "GENENAME", "GO"))
+kable(head(GeneSelected1), format = "latex", booktabs = TRUE,
+      align = rep("c", 7), caption = "\\textit{Head} dari GeneSelected1") %>%
+  kable_styling(position = "center", latex_options = c("scale_down", "HOLD_position"))
+```
+
+Setelah mengetahui nama gen, selanjutnya ingin diketahui model dan fungsi dari gen tersebut dengan menggunakan Gene Ontology. Terdapat tiga aspek fungsi gen yaitu
+
+  1.  *molecular function* (aktivitas molekuler dari hasil gen);
+  2.  *cellular component*, di mana hasil gen tersebut aktif;
+  3.  *biological process*, informasi dimana proses dan *pathways* biologi dari gen tersebut ikut serta.
+
+Untuk melakukan hal tersebut, diperlukan *package* `GO.db` yang akan menghubungkan nama-nama gen dengan Gene Ontology.
+
+```{r, message = FALSE, warning = FALSE}
+# Gene ontology for the top genes
+GOselected1 <- AnnotationDbi::select(GO.db, GeneSelected1$GO, c("TERM", "GOID"))
+# Combine the result
+finalres1 <- cbind(GeneSelected1, GOselected1)
+kable(head(finalres1), format = "latex", booktabs = TRUE,
+      align = rep("c", 9), caption = "\\textit{Head} dari finalres1") %>%
+  kable_styling(position = "center", latex_options = c("scale_down", "HOLD_position"))
+```
+
+Untuk versi lengkapnya, dapat dilihat pada *link* berikut. \href{https://docs.google.com/spreadsheets/d/1JTikvSPd2sN62PeVOw9NEZOZL52dK4I3Rxoc78DLcHU/edit?usp=sharing}{gende\_uas.csv}
+
+Dari top 50 gen tersebut, akan dipilih tiga gen untuk dicari deskripsi dan kaitannya dengan kanker prostat. Didapatkan hasil sebagai berikut.
+
+\begin{enumerate}
+
+\item RAB34 \\
+
+RAB34 mengkodekan protein yang termasuk dalam keluarga protein RAB, yang merupakan GTPase kecil yang penting dalam mengatur transduksi sinyal dan proses seluler. Peran potensial RAB34 pada kanker telah dikemukakan, namun hanya sedikit penelitian yang melaporkan fungsinya pada kanker epitel manusia. Dilaporkan bahwa pasien kanker prostat (PCa) lebih rentan terhadap kekambuhan biokimia ketika RAB34 diturunkan regulasinya dalam jaringan PCa dibandingkan dengan jaringan prostat jinak (BPT), yang dikaitkan secara negatif dengan miR-148, miRNA yang meningkatkan pertumbuhan garis sel dan diatur dalam sampel PCa. RAB34 adalah gen target yang diduga untuk miR-9 \hyperlink{ref2}{[2]}.
+
+\item Phosphoglucomutase 5 (PGM5) \\
+
+Kanker prostat (PCa) merupakan keganasan paling umum pada pria di negara maju. Antigen spesifik prostat (PSA) tetap menjadi penanda serum yang paling banyak digunakan untuk kanker prostat. Dari hasil penelitian, didapatkan bahwa ekspresi protein mirip fosfoglukomutase 5 (PGM5) secara signifikan lebih rendah pada jaringan kanker prostat. Rendahnya ekspresi PGM5 dan tanda gen terkait ditemukan terkait dengan hasil klinis yang buruk dan skor Gleason yang tinggi. Uji in vitro menunjukkan bahwa ekspresi berlebih PGM5 secara signifikan menekan proliferasi dan migrasi sel kanker prostat. Analisis GO dan jalur menunjukkan pengayaan gen dalam regulasi pertumbuhan dan migrasi sel, serta jalur yang terkait dengan kanker. Penurunan regulasi PGM5 berkaitan erat dengan metilasi DNA. Secara keseluruhan, ekspresi PGM5 dikaitkan dengan perkembangan kanker prostat. Hasil ini juga menyoroti alasan praklinis bahwa PGM5 mewakili penanda prognostik dan target yang menjanjikan untuk strategi terapi baru pada kanker prostat \hyperlink{ref10}{[10]}.
+
+\item Myosin Light Chain Linase (MYLK) \\
+
+Di negara maju, kanker prostat (PCa) merupakan kanker yang sering didiagnosis dengan tingkat kematian tertinggi kedua. Hasil dalam penelitian ini, tingkat ekspresi circMYLK secara signifikan lebih tinggi pada sampel PCa dan sel PCa dibandingkan pada jaringan normal dan sel prostat normal. CirRNA-MYLK yang diregulasi mendorong proliferasi, invasi, dan migrasi sel PCa. Namun, si-circRNA-MYLK secara signifikan mempercepat apoptosis sel PCa. Selain itu, didapatkan bahwa fungsi circRNA-MYLK pada sel PCa dipengaruhi melalui penargetan miR-29a. CircRNA-MYLK adalah onkogen pada PCa dan mengungkapkan mekanisme baru yang mendasari circRNA-MYLK dalam perkembangan PC (\textit{prostate cancer}) \hyperlink{ref4}{[4]}.
+
+\end{enumerate}
+
+Dengan menggunakan *contrast* pada persamaan (\ref{eq:contrast}), jumlah gen-gen yang signifikan berbeda, yaitu sebagai berikut. 
+
+\begin{table}[hbt!]
+	\centering
+	\caption{\textit{Differentially Expressed Genes} dari Dataframe expdtgeoFilt}
+	\resizebox{\textwidth}{!}{\begin{tabular}{c|cccccc} \toprule
+		& mpt vs npat & mpt vs nptissue &  mpt vs ppt & npat vs nptissue & npat vs ppt & nptissue vs ppt \\ \midrule
+		\emph{Down} & 635 & 414 & 539 & 5 & 48 & 114 \\ 
+		\emph{Not Significance} & 2273 & 2622 & 2507 & 3403 & 3262 & 3226 \\ 
+		\emph{Up} & 522 & 394 & 384 & 22 & 120 & 90 \\ \bottomrule
+	\end{tabular}}
+\end{table}
+
+Dari tabel tersebut, didapatkan informasi bahwa jenis jaringan paling banyak berbeda secara signifikan, yaitu *metastatic prostate tumor* versus *normal prostate adjacent to tumor* dengan jumlah yang signifikan berbeda sebanyak 635 + 522 = 1157.
+
+Berikut ini merupakan top 50 gen yang berbeda secara signifikan berdasarkan analisis LIMMA sebelumnya.
+
+```{r}
+rownames(topResult)
+```
+
+Gen tersebut mempunyai nama sebagai berikut.
+
+```{r}
+unique(finalres1$GENENAME)
+```
+
+Gen-gen tersebut signifikan berbeda pada analisis LIMMA sebelumnya. Gen tersebut direkomendasikan sebagai gen yang berekpresi berbeda di antara empat jenis jaringan, yaitu *normal prostate tissue*, *normal prostate adjacent to tumor*, *primary prostate tumor*, dan *metastatic prostate tumor*.
+
+## Insight 2
+
+Analisis *clustering* berdasarkan gen telah dilakukan pada dataframe `data.s` yang merupakan data 100 ekspresi gen dengan varian teratas. Melalui *cluster validation*, didapatkan jumlah klaster yang optimal adalah $k = 6$. Dengan menggunakan $k$-means ($k = 6$), didapatkan klaster dari 100 gen dengan varian yang tinggi tersebut. Pada bagian ini, akan dicari nama dan deskripsi gen pada masing-masing klaster yang terbentuk. 
+
+```{r, message = FALSE, warning = FALSE}
+# See gene name and description
+ids2 <- rownames(data.s)
+GeneSelected2 <- AnnotationDbi::select(hgu95b.db, ids2, 
+                                      c("SYMBOL", "ENTREZID", "GENENAME", "GO"))
+kable(head(GeneSelected2), format = "latex", booktabs = TRUE,
+      align = rep("c", 7), caption = "\\textit{Head} dari GeneSelected2") %>%
+  kable_styling(position = "center", latex_options = c("scale_down", "HOLD_position"))
+```
+
+Setelah mengetahui nama gen, selanjutnya ingin diketahui model dan fungsi dari gen tersebut dengan menggunakan Gene Ontology.
+
+```{r, message = FALSE, warning = FALSE}
+GOselected2 <- AnnotationDbi::select(GO.db, GeneSelected2$GO, c("TERM", "GOID"))
+# Combine the result
+finalres2 <- cbind(GeneSelected2, GOselected2)
+clust <- data.frame(CLUSTER = kmres2$cluster, PROBEID = names(kmres2$cluster))
+finalres2 <- merge(finalres2, clust, by = "PROBEID")
+finalres2 <- finalres2[order(finalres2$CLUSTER), ]
+kable(head(finalres2), format = "latex", booktabs = TRUE,
+      align = rep("c", 10), caption = "\\textit{Head} dari finalres2") %>%
+  kable_styling(position = "center", latex_options = c("scale_down", "HOLD_position"))
+```
+
+Untuk versi lengkapnya, dapat dilihat pada *link* berikut. \href{https://docs.google.com/spreadsheets/d/1T66sln9ug371jAxKS2xaSuiZVkZpbiCtywmu-R75EhA/edit?usp=sharing}{gencl\_uas.csv}
+
+Selanjutnya, akan dilakukan *enrichment analysis* pada setiap klaster gen yang telah dibentuk. Didapatkan hasil sebagai berikt.
+
+```{r}
+clust2 <- merge(clust, finalres2[, c(1, 3)], by = "PROBEID")
+clust2 <- clust2[!duplicated(clust2), ]
+clust3 <- list(C1 = clust2[clust2$CLUSTER==1, ]$ENTREZID,
+               C2 = clust2[clust2$CLUSTER==2, ]$ENTREZID,
+               C3 = clust2[clust2$CLUSTER==3, ]$ENTREZID,
+               C4 = clust2[clust2$CLUSTER==4, ]$ENTREZID,
+               C5 = clust2[clust2$CLUSTER==5, ]$ENTREZID,
+               C6 = clust2[clust2$CLUSTER==6, ]$ENTREZID)
+test_enrich <- compareCluster(geneCluster = clust3, 
+                              OrgDb = hgu95b.db,
+                              pAdjustMethod = "BH",
+                              pvalueCutoff = 0.5,
+                              qvalueCutoff = 0.5,
+                              fun = enrichGO)
+```
+
+```{r, fig.cap = "\\textit{Dot Plot} dari \\textit{Enrichment Analysis} pada Setiap Klaster"}
+dotplot(test_enrich, showCategory = 5)
+```
+
+Dari hasil *enriched terms* tersebut, didapatkan bahwa klaster 6 (C6) berkaitan erat dengan *receptor ligand activity* dan *signaling receptor activator activity*, sedangakan klaster 1 (C1) tidak berkaitan erat dengan kedua *term* tersebut.
+
+## Insight 3
+
+Pada analisis ini, prediksi dilakukan dengan menggunakan metode penggolompokkan (*clustering*) menggunakan label sampel dari data asli dan menggunakan metode klasifikasi (*classification*). Melalui pendekatan *clustering* dengan prinsip klasifikasi, akurasi prediksi label sampel asli tidak cukup tinggi. Algoritma *clustering* yang dipakai hanya mampu memprediksi dengan akurasi maksimum sebesar `r ac1*100`\%. Sebaliknya, prediksi dengan algoritma klasifikasi menghasilkan rata-rata akurasi yang tinggi secara umum. Akurasi terbaik dengan $k$-*fold cross validation* dengan $k = 5$ dimiliki oleh model $k$-NN dengan $k = 5$ karena hasil akurasi prediksinya tinggi, standar deviasinya rendah, dan hasil akurasinya relatif stabil. Model akhir klasifikasi dengan menggunakan $k$-NN ($k = 5$) menghasilkan akurasi prediksi 100\% pada data `test`.
+
+\newpage
+
+# DAFTAR PUSTAKA
+
+\begin{hangparas}{0.25in}{1} 
+
+\hypertarget{ref1}{[1]} American Cancer Society. (2019). \textit{What Is Prostate Cancer?}. \url{https://www.cancer.org/cancer/types/prostate-cancer/about/what-is-prostate-cancer.html}
+
+\hypertarget{ref2}{[2]} Benedetti, I., Barrios, L., \& Rebollo, J. (2022). Rab34 is downregulated in human prostate cancer tissue. \textit{Cancer Research}, \textit{82}(12\_Supplement), 5718-5718.
+
+\hypertarget{ref3}{[3]} Cancer Research UK. (n.d.). \textit{What is metastatic prostate cancer?}. \url{https://www.cancerresearchuk.org/about-cancer/prostate-cancer/metastatic-cancer/what-is-metastatic-prostate-cancer}
+
+\hypertarget{ref4}{[4]} Dai, Y., Li, D., Chen, X., Tan, X., Gu, J., Chen, M., \& Zhang, X. (2018). Circular RNA Myosin Light Chain Kinase (MYLK) Promotes Prostate Cancer Progression through Modulating Mir-29a Expression. \textit{Medical science monitor: international medical journal of experimental and clinical research}, \textit{24}, 3462–3471. \url{https://doi.org/10.12659/MSM.908009}
+
+[5] Dalpiaz , D. (2020).\textit{R for Statistical Learning}. \url{https://daviddalpiaz.github.io/r4sl/the-caret-package.html}
+
+\hypertarget{ref6}{[6]} Kaiser, S. (2011). \textit{Biclustering: Methods, Software and Application}.
+
+\hypertarget{ref7}{[7]} MIT. (n.d.). \textit{Introduction to the LIMMA Package}. \url{https://web.mit.edu/~r/current/arch/i386_linux26/lib/R/library/limma/html/01Introduction.html#}
+
+[8] Multimatics Insight. (n.d.). \textit{Five Types of Classification Algorithms in Data Science}. \url{https://multimatics.co.id/blog/jun/5-types-of-classification-algorithms-in-data-science.aspx}
+
+[9] Rencher, A. C., \& Christensen, W. F. (2020). \textit{Methods of 
+Multivariate Analysis} (3rd ed). John Wiley \& Sons.
+
+\hypertarget{ref10}{[10]} Sun, J., Wang, F., Zhou, H., Zhao, C., Li, K., Fan, C., \& Wang, J. (2022). Downregulation of PGM5 e xpression correlates with tumor progression and poor prognosis in human prostate cancer. \textit{Discover. Oncology}, \textit{13}(1), 63. \url{https://doi.org/10.1007/s12672-022-00525-x}
+
+\end{hangparas}
